@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rpos_admin`
+-- Table structure for table `kpj_cafe`
 --
 
 CREATE TABLE `rpos_admin` (
