@@ -1,0 +1,211 @@
+.right-side {
+    margin-right: auto;
+    position: absolute;
+    right: 15%;
+  }
+
+  .game-icon {
+
+  }
+
+
+    #openmenu:checked~.panelY {
+      left: 50vw;
+      transform: translateX(10vw);
+      z-index: 111;
+    }
+
+    body {
+      overflow-y: auto;
+    }
+
+    .body-text {
+      padding-top: 20vh;
+      text-align: center;
+      position: relative;
+    }
+
+    .hamburger-icon {
+      position: absolute;
+      top: 5vh;
+      left: 5vw;
+      padding-bottom: 2vh;
+      z-index: 1111;
+    }
+
+    .hamburger-icon span {
+      height: 5px;
+      width: 40px;
+      background-color: var(--bg-secondary-color);
+      display: block;
+      margin: 5px 0px 5px 0px;
+      transition: 0.7s ease-in-out;
+      transform: none;
+      z-index: 111;
+
+    }
+
+    #openmenu:checked~.panelY {
+      right: 18vw;
+      transform: translateX(-25vw);
+      z-index: 111;
+
+    }
+
+    #openmenu:checked~.body-text {
+      display: none;
+    }
+
+    #openmenu:checked~.hamburger-icon span:nth-of-type(2) {
+      transform: translate(0%, 175%) rotate(-45deg);
+      background-color: var(--bg-primary-color);
+
+    }
+
+    #openmenu:checked~.hamburger-icon span:nth-of-type(3) {
+      transform: rotate(45deg);
+      background-color: var(--bg-primary-color);
+      z-index: 111;
+
+    }
+
+    #openmenu:checked~.hamburger-icon span:nth-of-type(1) {
+      opacity: 0;
+    }
+
+    #openmenu:checked~.hamburger-icon span:nth-of-type(4) {
+      opacity: 0;
+      z-index: 111;
+    }
+
+
+    div.panelY {
+      z-index: 111;
+      display: inline-flex;
+      background-color: var(--bg-secondary-color);
+      position: fixed;
+      transform: translateX(300vw);
+      transform-origin: 0, 0;
+      width: 100vw;
+      height: 100%;
+      transition: 0.6s ease-in-out;
+    }
+
+    .panelY p {
+      color: black;
+      font-size: 0.6em;
+    }
+
+    .panelY nav {
+      padding-top: 2%;
+      padding-left: 15%;
+
+      display: flex;
+    }
+
+    .menu-links .menu__heading--item {
+      font-size: 2rem;
+    }
+
+    .menu-links li,
+    a,
+    span {
+      transition: 0.5s ease-in-out;
+    }
+
+    .panelY ul {
+      padding: 10%;
+      display: inline-block;
+    }
+
+    .panelY li {
+      padding-top: 1rem;
+      padding-bottom: 1.8rem;
+      margin-left: 10px;
+      font-size: 1.5em;
+      line-height: 1.6rem;
+    }
+
+    .panelY .menuImte {
+      font-size: 1.2rem;
+    }
+
+    .panelY li:first-child {
+      font-size: 1.6em;
+      margin-left: -10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .menu__links li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu__links li:hover a {
+      color: #FFAB91;
+    }
+
+    .menu__links li:first-child:hover a {
+      color: black;
+      background-color: #FFAB91;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+
+    #QC-info {
+      background-color: #FFAB91;
+      border: 2px solid;
+      border-color: #FFAB91;
+      display: block;
+      opacity: 0;
+    }
+
+    .menu-links li:first-child:hover #QC-info {
+      opacity: 1;
+    }
+
+    .menu-links li:first-child:hover #DC-info {
+      opacity: 1;
+    }
+
+    #DC-info {
+      background-color: #FFAB91;
+      border: 2px solid;
+      border-color: #FFAB91;
+      display: block;
+      opacity: 0;
+    }
+
+    .menu-links li:first-child a {
+      padding: 5px;
+    }
+
+    input.hamburger-checkbox {
+      position: absolute;
+      z-index: 3;
+      top: 5vh;
+      left: 5vw;
+      width: 10vw;
+      opacity: 0;
+      height: 6vh;
+    }
+
+    .text-right {
+      position: absolute;
+      top: 5vh;
+      right: 5rem;
+      color: var(--color-primary);
+
+    }
+
+    .menuImte {
+      font-size: 1.1rem;
+    }
+
+    .text-right h1 {
+      font-size: 1.5rem;
+    }

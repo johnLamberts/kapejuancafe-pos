@@ -1,0 +1,42 @@
+.menu-page {
+    background-color: var(--bg-tertiary-color);
+    text-align: center;
+    color: var(--color-secondary);
+    height: 110vh;
+}
+
+.menu-cutter {
+    margin-top: 2%;
+}
+
+.menu__content {
+    padding-top: 1%;
+}
+
+.menu__content h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 3%;
+}
+
+
+.menu__content div {
+    width: 50%;
+    padding: 0.7rem 1.2rem;
+    margin: auto;
+    font-size: 1.2rem;
+    letter-spacing: 1.3px;
+}
+
+.secondary-btn {
+    padding: 2rem 3rem;
+}
+
+.secondary-btn-links {
+    font-weight: 700;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--bg-primary-color);
+    box-shadow: -0.3rem 0.3rem 1px rgba(224,207,172, 0.8);
+}

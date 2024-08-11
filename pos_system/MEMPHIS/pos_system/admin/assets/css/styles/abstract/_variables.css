@@ -1,0 +1,36 @@
+
+
+:root {
+
+
+    /* for font- size */
+    --font-size-p: 1.55rem;
+    --font-size-s: 1.25rem;
+    
+    --font-size-header: 4.1rem;
+    --font-size-sub-header: 1.2rem;
+
+    --font-size-home-header: 2.6rem;
+
+    --font-size-p-btn: 1.5rem;
+
+    /* button size */
+    --primary-size-btn: 3.5625rem 16.5rem;
+
+    /* font-color */
+    --color-primary: #8D5921;
+    --color-secondary: #E0CFAC;
+    --color-tertiary: #66490E;
+
+    /* bg color */
+    --bg-primary-color: #E0CFAC;
+    --bg-secondary-color: #8D5921;
+    --bg-tertiary-color: #66490E;
+
+    /* utitlies */
+    --pm-top: 2.25rem;
+
+
+
+
+}

@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Kape-Juan Cafe</title>
+
+    <title>About Kape-Juan Cafe</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      section {
+        overflow: hidden;
+        min-height: 20vh;
+      }
+      .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* overflow-y: hidden; */
+        width: 100%;
+        z-index: 99;
+        background: #e0cfac;
+        display: grid;
+        place-items: center;
+        font-family: "Orbitron", sans-serif;
+        /* display: none; */
+      }
+      .loading__box {
+        position: relative;
+        width: 500px;
+        height: 200px;
+        border: 3px solid #66490e;
+        border-top: 3px solid #66490e;
+        border-bottom: 3px solid #66490e;
+      }
+      @media (max-width: 600px) {
+        .loading__box {
+          width: 90vw;
+        }
+      }
+      .loading__bar {
+        width: 90%;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ccc;
+        border-radius: 2px;
+      }
+      .loading__bar--inner {
+        height: 100%;
+        width: 0;
+        border-radius: 2px;
+        background-color: #8d5921;
+      }
+      .loading__text {
+        position: relative;
+        color: #8d5921;
+        padding: 1rem;
+        letter-spacing: 2px;
+        font-size: 2rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 351px) {
+        .loading__text {
+          font-size: 17px;
+        }
+      }
+      .loading__text--dot {
+        width: 15px;
+        height: 15px;
+        margin: 0 3px;
+        border-radius: 50%;
+        background-color: #66490e;
+        animation: pulse 1s infinite;
+      }
+      @keyframes pulse {
+        from {
+          opacity: 0;
+          background-color: #66490e;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .loading__text--lines {
+        width: 85%;
+        height: 1px;
+        background-color: #66490e;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .loading__counter {
+        position: absolute;
+        top: 70%;
+        left: 0;
+        color: #66490e;
+        font-size: 20px;
+        width: 100%;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+      }
+      .loading__counter--number {
+        color: #66490e;
+        padding-right: 2rem;
+      }
+      .loading__width--animation {
+        animation: width_animation 1s forwards;
+      }
+      @keyframes width_animation {
+        0% {
+          width: 85%;
+        }
+        100% {
+          width: 270px;
+        }
+      }
+      .loading__svg {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        opacity: 0.001;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loading__box">
+        <img loading="lazy" src="../../assets/highlight_bg-1.png" class="loading__svg" />
+        <div class="loading__text">
+          <div class="loading__text--lines loading__width--animation"></div>
+          KAPE
+          <div class="loading__text--dot"></div>
+          JUAN CAFE
+        </div>
+        <div class="loading__bar">
+          <div class="loading__bar--inner"></div>
+        </div>
+        <div class="loading__counter">
+          <span>0%</span>
+          <div class="loading__counter--number">0%</div>
+        </div>
+      </div>
+    </div>
+    <!-- can be refactor -->
+    <header class="header">
+      <nav class="nav">
+        <ul class="navbar-nav">
+          <li class="menu-items">
+            <a href="../../index.html" class="active-links">Home</a>
+          </li>
+          <li class="menu-items">
+            <a href="./about.html" class="active-links">About</a>
+          </li>
+          <li class="menu-items">
+            <a href="./menu.html" class="active-links">Menu</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="logo">
+        <img
+          src="../../assets/images/KapeJuan-Logo.png"
+          alt="Kape-Juan Logo"
+          class="logo-img"
+        />
+      </div>
+
+      <nav class="nav">
+        <ul class="navbar-nav right">
+          <li class="menu-items">
+            <a href="#" class="active-links">Shop</a>
+          </li>
+          <li class="menu-items">
+            <a href="#" class="active-links">Contact</a>
+          </li>
+          <li class="menu-items">
+            <a href="../../pos_system/index.php" class="active-links"
+              >Account</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- meanu header -->
+      <section class="section menu-page-section">
+        <!-- <div class="special-menu">
+          <div class="special-menu-text__effect">
+            <h1>MILK TEA</h1>
+          </div>
+          <div class="special-menu-text__effect">
+            <h1>CAKES</h1>
+          </div>
+        </div> -->
+
+        <div class="main-context">
+          <h1 class="primary__heading">OUR MENU</h1>
+
+          <p>
+            We aim to offer something on our menu for every palette and every
+            occasion. Take a look at the tasty treats our chefs can rustle up to
+            cure your hunger. Our entire menu is available both for eat-in and
+            take away.
+          </p>
+        </div>
+
+        <div class="main-bg-for__shop">
+          <img src="../../assets/shop_1.jpg" alt="" />
+        </div>
+      </section>
+
+      <!-- menu content -->
+      <section class="menu-classy section">
+        <!-- Pastries -->
+        <div class="menu__box">
+          <h1 class="menu__heading">PASTRIES</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Butter Croissant</div>
+                <div>P100.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Chocolate Croissant</div>
+                <div>P120.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Brownies</div>
+                <div>P50.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Triple Choco Muffin</div>
+                <div>P80.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Blueberry Muffin</div>
+                <div>P80.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Banana Choco Muffin</div>
+                <div>P80.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Pain Au Chocolate</div>
+                <div>P80.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Apple Cinnamon Danish</div>
+                <div>P80.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+        <!-- CAKES -->
+        <div class="menu__box">
+          <h1 class="menu__heading">CAKES</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>New York Cheesecake</div>
+                <div>P130 .00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Strawberry Cheesecake</div>
+                <div>P130 .00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Blueberry Cheesecake</div>
+                <div>P130 .00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Oreo Cheesecake</div>
+                <div>P130 .00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Japanese Cheesecake</div>
+                <div>P130 .00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Chocolate Yema Cheesecake</div>
+                <div>P130 .00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+        <!-- SANDWICHES -->
+        <div class="menu__box">
+          <h1 class="menu__heading">SANDWICHES</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Classic French Toast</div>
+                <div>P150.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Ham & Cheese Croissant</div>
+                <div>P130.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Spam & Cheddar Baguette</div>
+                <div>P150.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Grilled Cheese Baguette</div>
+                <div>P180.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Philly Cheesesteak Baguette</div>
+                <div>P220.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+        <!-- PASTA -->
+        <div class="menu__box">
+          <h1 class="menu__heading">PASTA</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Chicken Alfredo</div>
+                <div>P160.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Charlie Chan</div>
+                <div>P160.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Sausage Arrabiata</div>
+                <div>P160.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Spaghetti Aglio Olio</div>
+                <div>P160.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Truffle Mushroom Pasta</div>
+                <div>P200.00</div>
+              </div>
+              <img
+                src="../../assets/menu/5.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+
+        <!-- PICA SNACKS -->
+        <div class="menu__box">
+          <h1 class="menu__heading">PICA SNACKS</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Churros with Dip:</div>
+                <div></div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div></div>
+                <div></div>
+              </div>
+
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>-6 pcs with 1 Dip</div>
+                <div>P90.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>-12 pcs with 2 Dips</div>
+                <div>P160.00</div>
+              </div>
+
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Messy Nachos</div>
+                <div>P150.00</div>
+              </div>
+              <img
+                src="../img/messy_nachos.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+
+            <a href="#">
+              <div class="menu__items">
+                <div>Chicken Tendies</div>
+                <div>P150.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+        <!-- ICE BLEND -->
+        <div class="menu__box">
+          <h1 class="menu__heading">ICE BLEND</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Mokka</div>
+                <div>P139.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Karamel</div>
+                <div>P139.00</div>
+              </div>
+              <img src="../img/Karamel.jpg" alt="" class="menu-img-special" />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>White Chocolate Mokka</div>
+                <div>P139.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Matcha</div>
+                <div>P139.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Blueberry Latte</div>
+                <div>P139.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+
+        <!-- DETOX COOLERS -->
+        <div class="menu__box">
+          <h1 class="menu__heading">
+            <span class="cooler">DETOX COOLERS</span>
+            <span>WITH WHIPPED CREAM</span>
+          </h1>
+
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Calamansi Mint</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Brownie Milkshake</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../img/brownie_milkshake.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Banana Peanut Butter</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+
+            <a href="#">
+              <div class="menu__items">
+                <div>Strawberry Frappe</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+
+            <a href="#">
+              <div class="menu__items">
+                <div>Calamansi Mint</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Banana Peanut Butter</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Strawberry Banana Mint</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+
+            <a href="#">
+              <div class="menu__items">
+                <div>Matcha Frappe</div>
+                <div>P169.00</div>
+              </div>
+              <img
+                src="../img/macha_frappe.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+
+        <!-- COFFEE -->
+        <div class="menu__box">
+          <h1 class="menu__heading">COFFEE</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Amerikana</div>
+                <div>P89.00</div>
+                <div>P99.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Karamel</div>
+                <div>P89.00</div>
+                <div>P99.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>French Vanilla</div>
+                <div>P99.00</div>
+                <div>109.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Spanish Latte</div>
+                <div>P99.00</div>
+                <div>109.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>White Mokka</div>
+                <div>P99.00</div>
+                <div>109.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Kape Float</div>
+                <div>P99.00</div>
+                <div>109.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+
+        <!-- NON-COFFEE -->
+        <div class="menu__box">
+          <h1 class="menu__heading">NON-COFFEE</h1>
+          <hr />
+          <nav id="nav">
+            <a href="#">
+              <div class="menu__items">
+                <div>Dark Choco Latte</div>
+                <div>P109.00</div>
+                <div>P119.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>White Choco Milk</div>
+                <div>P109.00</div>
+                <div>P119.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Matcha Latte</div>
+                <div>P109.00</div>
+                <div>P119.00</div>
+              </div>
+              <img src="../img/macha.jpg" alt="" class="menu-img-special" />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Strawberry Milk</div>
+                <div>P109.00</div>
+                <div>P119.00</div>
+              </div>
+              <img
+                src="../img/strawberry_milk.jpg"
+                alt=""
+                class="menu-img-special"
+                id="img"
+              />
+            </a>
+            <a href="#">
+              <div class="menu__items">
+                <div>Blueberry Milk</div>
+                <div>P109.00</div>
+                <div>P119.00</div>
+              </div>
+              <img
+                src="../../assets/menu/1.jpg"
+                alt=""
+                class="menu-img-special"
+              />
+            </a>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const navAll = document.querySelectorAll("#nav");
+      navAll.forEach((e) => {
+        const elem = e.querySelectorAll("a");
+
+        elem.forEach((link) => {
+          link.onmousemove = (e) => {
+            const rect = link.getBoundingClientRect();
+            const img = link.querySelector("img");
+
+            img.style.left = `${e.clientX - rect.left}px`;
+            img.style.top = `${e.clientY - rect.top}px`;
+          };
+
+          this.onmousemove = (e) => {
+            const percent = e.clientY / window.innerHeight;
+            let y = percent * nav.offsetHeight * -1;
+
+            link.animate(
+              {
+                transform: `translateY(${y})px`,
+              },
+              {
+                fill: "forwards",
+                duration: 4000,
+              }
+            );
+          };
+        });
+      });
+
+      const bar = document.querySelector(".loading__bar--inner");
+      const numCounter = document.querySelector(".loading__counter--number");
+
+      let counter = 2;
+
+      let barInterval = setInterval(() => {
+        bar.style.width = counter + "%";
+        numCounter.innerText = `${counter}%`;
+        counter++;
+
+        if (counter === 101) {
+          clearInterval(barInterval);
+          gsap.to(".loading__bar", {
+            duration: 5,
+            rotate: "90deg",
+            left: "1000%",
+          });
+          gsap.to(".loading__text, .loading__counter", {
+            duration: 0.5,
+            opacity: 0,
+          });
+          gsap.to(".loading__box", {
+            duration: 1,
+            height: "300px",
+            width: "300px",
+            borderRadius: "50%",
+          });
+          gsap.to(".loading__svg", {
+            duration: 1.3,
+            opacity: 1,
+            rotate: "360deg",
+          });
+          gsap.to(".loading__box", {
+            delay: 2,
+            border: "none",
+          });
+          gsap.to(".loading", {
+            delay: 2,
+            duration: 2,
+            zIndex: -1,
+            background: "transparent",
+            opacity: 0.2,
+          });
+          gsap.to(".loading__svg", {
+            delay: 3,
+            duration: 100,
+            rotate: "360deg",
+            opacity: 1,
+          });
+
+          gsap.to(".header", {
+            duration: 1,
+            duration: 2,
+            zIndex: 1,
+            top: "0",
+          });
+
+          // imagesloaded(document.querySelectorAll('img'), () => {
+
+          //     gsap.to('header', {
+          //         duration: 1,
+          //         duration: 2,
+          //         top: "0"
+          //     });
+          //     gsap.to('.socials', {
+          //         duration: 1,
+          //         delay: 2.5,
+          //         bottom: "10rem"
+          //     });
+          //     gsap.to('.scrolldown', {
+          //         duration: 1,
+          //         delay: 2.9,
+          //         bottom: "3.5rem",
+          //     });
+          //     setTimeout(() => {
+          //     let options = {
+          //         damping: 0.1,
+          //         alwaysShowTracks: true,
+          //         plugins: {
+          //             disabledScroll: {
+          //                 direction: "x"
+          //             }
+          //         }
+          //     }
+
+          //     let pageSmooth = ScrollBar.init(document.body, options)
+          //     pageSmooth.track.xAxis.element.remove();
+          //     }, 2000)
+          // })
+        }
+      }, 10);
+    </script>
+  </body>
+</html>

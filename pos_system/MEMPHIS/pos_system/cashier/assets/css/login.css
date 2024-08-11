@@ -1,0 +1,138 @@
+section {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .main-login-page, .register-page {
+    display: flex;
+    min-width: 100%;
+    height: 80vh;
+    gap: 3rem;
+    padding: 0;
+  }
+  
+  .right-side-panel .register-account .sign-up-links {
+    text-decoration: underline;
+    font-weight: 800;
+  }
+  
+  .right-side-panel .register-account {
+    margin-left: auto;
+    font-size: 1.1rem;
+  }
+  
+  .right-side-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    height: 50%;
+    position: relative;
+    padding: 4rem;
+    color: var(--color-primary);
+  }
+  
+  .right-side-panel > .login-control > .heading__primary {
+    text-align: right;
+    font-size: 3.4rem;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+  }
+  
+  .form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.9rem;
+    flex-grow: 1;
+    padding-inline-start: 1rem;
+    padding-top: 2rem;
+  }
+  
+  .form-wrapper .form-controls {
+    margin: auto;
+    width: 100%;
+  }
+  
+  .form-wrapper .form-controls input {
+    padding: 0.8rem 1.9rem;
+    width: 100%;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid var(--bg-secondary-color);
+    transition: border 0.2s ease;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+  
+  .form-wrapper .form-controls input::placeholder {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-family: "Cormorant Garamond", serif;
+  }
+  
+  .form-wrapper .form-controls input:focus,
+  .form-wrapper .form-controls input:link {
+    border: 2px solid var(--bg-secondary-color);
+  }
+  
+  .forget-password {
+    margin-left: auto;
+    font-weight: 700;
+    transition: text-decoration 0.3s ease;
+  }
+  
+  .forget-password:hover {
+    text-decoration: underline;
+  }
+  
+  .casual-sign-in {
+    text-align: center;
+  }
+  
+  .primary-btn-login {
+    padding-top: 0.3rem;
+    display: grid;
+    place-items: center;
+    /* color: var(--color-secondary);
+      box-shadow: -0.3rem 0.3rem 1px rgba(141,89,33, 0.7);
+      width: 100%; */
+  }
+  
+  .primary-btn-login {
+    padding: 1rem;
+  }
+  
+  .primary-btn-login > .primary-btn--links {
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 0.85rem 0;
+    font-size: 1.188rem;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: var(--bg-secondary-color);
+    border: 1px solid var(--bg-secondary-color);
+    box-shadow: -0.3rem 0.3rem 1px rgba(141, 89, 33, 0.7);
+  }
+  
+  .links { padding: 1rem }
+  .tertiary-btn {
+    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    align-items: center;
+  
+    width: 100%;
+    border: 1px solid var(--bg-secondary-color);
+    box-shadow: -0.3rem 0.3rem 1px rgba(141, 89, 33, 0.7);
+  }
+  
+  .tertiary-btn .tertiary-btn-links {
+      color: var(--color-primary);
+  }
+  

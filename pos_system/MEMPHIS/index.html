@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="
+        A Point of Sale and Online ordering system for 
+        KapeJuan Cafe"
+    />
+
+    <meta
+      name="keywords"
+      content="
+        HTML, CSS, BOOTSTRAP and PHP
+    "
+    />
+
+    <meta name="author" content="Group Developer" />
+
+    <title>KapeJuan Cafe</title>
+
+    <link rel="stylesheet" href="src/styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      section {
+        /* overflow: hidden; */
+        min-height: 20vh;
+      }
+      .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* overflow-y: hidden; */
+        width: 100%;
+        z-index: 99;
+        background: #e0cfac;
+        display: grid;
+        place-items: center;
+        font-family: "Orbitron", sans-serif;
+        /* display: none; */
+      }
+      .loading__box {
+        position: relative;
+        width: 500px;
+        height: 200px;
+        border: 3px solid #66490e;
+        border-top: 3px solid #66490e;
+        border-bottom: 3px solid #66490e;
+      }
+      @media (max-width: 600px) {
+        .loading__box {
+          width: 90vw;
+        }
+      }
+      .loading__bar {
+        width: 90%;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ccc;
+        border-radius: 2px;
+      }
+      .loading__bar--inner {
+        height: 100%;
+        width: 0;
+        border-radius: 2px;
+        background-color: #8d5921;
+      }
+      .loading__text {
+        position: relative;
+        color: #8d5921;
+        padding: 1rem;
+        letter-spacing: 2px;
+        font-size: 2rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 351px) {
+        .loading__text {
+          font-size: 17px;
+        }
+      }
+      .loading__text--dot {
+        width: 15px;
+        height: 15px;
+        margin: 0 3px;
+        border-radius: 50%;
+        background-color: #66490e;
+        animation: pulse 1s infinite;
+      }
+      @keyframes pulse {
+        from {
+          opacity: 0;
+          background-color: #66490e;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .loading__text--lines {
+        width: 85%;
+        height: 1px;
+        background-color: #66490e;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .loading__counter {
+        position: absolute;
+        top: 70%;
+        left: 0;
+        color: #66490e;
+        font-size: 20px;
+        width: 100%;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+      }
+      .loading__counter--number {
+        color: #66490e;
+        padding-right: 2rem;
+      }
+      .loading__width--animation {
+        animation: width_animation 1s forwards;
+      }
+      @keyframes width_animation {
+        0% {
+          width: 85%;
+        }
+        100% {
+          width: 270px;
+        }
+      }
+      .loading__svg {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        opacity: 0.001;
+        border-radius: 50%;
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      .modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 100ms ease-in;
+    -moz-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 3px;
+    background: #fff;
+}
+.close {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f26d7d;
+    color: #fff;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 34px;
+    height: 34px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+    padding-top: 5px;
+}
+.close:hover {
+    background: #fa3f6f;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit] {
+    object-position: right;
+    width: 20%;
+    background-color: #66490E;
+    color: #E0CFAC;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover {
+    opacity: 50%;
+}
+    </style>
+  </head>
+
+  <body>
+    <!-- loader -->
+
+    <div class="loading">
+      <div class="loading__box">
+        <img loading="lazy" src="./assets/highlight_bg-1.png" class="loading__svg" />
+        <div class="loading__text">
+          <div class="loading__text--lines loading__width--animation"></div>
+          KAPE
+          <div class="loading__text--dot"></div>
+          JUAN CAFE
+        </div>
+        <div class="loading__bar">
+          <div class="loading__bar--inner"></div>
+        </div>
+        <div class="loading__counter">
+          <span>0%</span>
+          <div class="loading__counter--number">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- navigation for desktop screen -->
+    <header class="header">
+      <nav class="nav">
+        <ul class="navbar-nav">
+          <li class="menu-items">
+            <a href="" class="active-links">Home</a>
+          </li>
+          <li class="menu-items">
+            <a href="./src/pages/about.html" class="active-links">About</a>
+          </li>
+          <li class="menu-items">
+            <a href="./src/pages/menu.html" class="active-links">Menu</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="logo">
+        <img
+          src="./assets/images/KapeJuan-Logo.png"
+          alt="Kape-Juan Logo"
+          class="logo-img"
+        />
+      </div>
+
+      <nav class="nav">
+        <ul class="navbar-nav right">
+          <li class="menu-items">
+            <a href="src/pages/shop.html" class="active-links">Shop</a>
+          </li>
+          <li class="menu-items">
+            <a href="#openModal-about">Contact</a>
+<!--modals-->
+  <div id="openModal-about" class="modalDialog">
+      <div>
+         <a href="#close" title="Close" class="close">X</a>
+         <div class="header">
+          <h2>Contact Us</h2>
+         </div>       
+         <div class="body">
+            <label for="name">Name</label>
+            <input type="text" class="name" placeholder="Enter your name...">
+            <label for="email">Email</label>
+            <input type="text" class="email" placeholder="Enter your email...">
+            <label for="name">Name</label>
+            <input type="text" class="message" placeholder="Message...">
+         </div>
+         <div class="footer">
+          <button type="button" class="btn">Submit</button>
+         </div>
+        </div>
+   </div>
+  
+      </div>
+          </li>
+          <li class="menu-items">
+            <!-- ./pos_system/ -->
+            <a href="#openModal-terms">Account</a>
+<!--modals-->
+  <div id="openModal-terms" class="modalDialog">
+      <div>
+         <a href="#close" title="Close" class="close">X</a>
+         <div class="header">
+          <h2>Terms and Conditions</h2>
+         </div>       
+         <div class="body">
+          <p>Welcome to KapeJuan Cafe! <br><br> 
+            These terms and conditions outline the rules and regulations for the use of KapeJuan Cafe Inc.'s Website, located at http://localhost/memphis/#close <br><br>
+            By accessing this website we assume you accept these terms and conditions. Do not continue to use KapeJuan Cafe if you do not agree to take all of the terms and conditions stated on this page. <br><br>
+            
+            <a href="pos_system/">Register/Login</a>
+
+          </p>   
+         </div>
+         <div class="footer">
+         </div>
+        </div>
+   </div>
+  
+      </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- main content -->
+    <main>
+      <!-- home -->
+      <section class="section home-page" id="home">
+        <div
+          class="home-content"
+          style="background-image: url('./assets/images/bg-img.jpg')"
+        >
+          <div class="home-box">
+            <div class="home__description">
+              <h1 class="heading__primary">
+                Everything you need to satisfy your cravings
+              </h1>
+              <p>
+                Bringing the smell and taste of your favorite cafe and freshly
+                baked pastries straight to your mouth...
+              </p>
+            </div>
+          </div>
+          <div class="home-image" >
+            <img
+              src="./assets/images/Home.jpg"
+              alt="Look inside"
+              class="home-img animate__animated animate__jackInTheBox"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- lines cutter -->
+      <div class="bg-cutter">
+        <img
+          loading="lazy"
+          src="./assets/images/bg-cutter.png"
+          alt=""
+          class="bg-cutter-img"
+        />
+      </div>
+
+      <!-- about -->
+      <section class="section about-page" id="about">
+        <div class="about__description">
+          <h1 class="heading__primary about">
+            ABOUT OUR <br />
+            KAPE - JUAN CAFE
+          </h1>
+          <img loading="lazy" src="./assets/images/heaty_bomb.png" />
+          <p>
+            We have two obsessions: coffee and food. We’re passionate about
+            sharing both with you, which is why we crheated Kape-Juan Cafe. Here
+            is a place to eat, drink, meet friends, and enjoy an atmosphere away
+            from the hhassles of everyday life.
+          </p>
+        </div>
+
+        <div
+          class="about-box-content"
+          style="background-image: url(./assets/images/bg_secondary.png)"
+        >
+          <div class="about-content">
+            <div class="about__pictures">
+              <img
+                loading="lazy"
+                src="./assets/images/haven_1.PNG"
+                alt=""
+                class="about-img"
+              />
+            </div>
+            <div class="lines">
+              <img
+                src="./assets/images/arrow-desc.png"
+                alt="#"
+                class="arrow-img"
+              />
+            </div>
+            <div class="about__caption">
+              <h4>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Possimus a eos minima quis odit doloribus dolorem modi id
+                dolorum praesentium nostrum, quam nulla iusto magni. Fuga saepe
+                tempora minima reiciendis!
+              </h4>
+
+              <div class="about__caption--desc">
+                <h2>Super Delicious</h2>
+                <img loading="lazy" src="./assets/images/medium.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="primary-btn">
+            <a href="./src/pages/about.html" class="primary-btn-links">
+              Read More About Us
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- menus -->
+      <section class="section menu-page" id="menus">
+        <!-- lines cutter -->
+        <div class="menu-cutter">
+          <img
+            src="./assets/images/menu_lines.png"
+            alt=""
+            class="bg-cutter-img menu-cutter"
+          />
+        </div>
+        <div class="menu__content">
+          <h1 class="heading__primary menu__primary">OUR MENu</h1>
+          <div>PASTRIES</div>
+          <div>CAKES</div>
+          <div>ICE BLENDED</div>
+          <div>DETOX COOLERS</div>
+          <div>COFFEE</div>
+          <div>SANDWICHES</div>
+        </div>
+
+        <div class="secondary-btn">
+          <a href="src/pages/menu.html" class="secondary-btn-links">
+            Read all our menus
+          </a>
+        </div>
+      </section>
+
+      <!-- menu wallpaper -->
+      <section class="section menu__wp" id="menu-wallpaper">
+        <div
+          class="menu__wallpaper"
+          style="
+            background-image: url(./assets/images/bg_secondary.png);
+            background-position: bottom bottom;
+          "
+        >
+          <div class="extra__wp">
+            <img
+              src="./assets/images/up-menu.png"
+              alt=""
+              class="wp-img-cutter"
+            />
+          </div>
+          <div class="menu__content-wallpaper">
+            <div class="wallpaper-post">
+              <img
+                src="./assets/images/wallpaper/wp1.jpg"
+                alt=""
+                class="wallpaper-img"
+              />
+            </div>
+            <div class="wallpaper-post">
+              <img
+                src="./assets/images/wallpaper/wp2.jpg"
+                alt=""
+                class="wallpaper-img"
+              />
+            </div>
+            <div class="wallpaper-post">
+              <img
+                src="./assets/images/wallpaper/wp3.jpg"
+                alt=""
+                class="wallpaper-img"
+              />
+            </div>
+            <div class="wallpaper-post">
+              <img
+                src="./assets/images/wallpaper/wp4.jpg"
+                alt=""
+                class="wallpaper-img"
+              />
+            </div>
+            <div class="wallpaper-post">
+              <img
+                src="./assets/images/wallpaper/wp5.jpg"
+                alt=""
+                class="wallpaper-img"
+              />
+            </div>
+            <div class="wallpaper-post">
+              <img
+                src="./assets/images/wallpaper/wp6.jpg"
+                alt=""
+                class="wallpaper-img"
+              />
+            </div>
+          </div>
+          <div class="extra__wp">
+            <img
+              src="./assets/images/down-menu.png"
+              alt=""
+              class="wp-img-cutter"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script defer type="module" src="assets/js/loader.js"></script>
+    <!-- <div class="footer">
+      <div class="footer-logo">
+          <img src="Initial Logo.png" alt="logo">
+      </div>
+      <div class="info">
+          <a href="">Home</a> | <a href="#">Menu</a> | <a href="#">About</a> | <a href="#">Contact</a>
+      </div>
+      <div class="contact">
+          <h3>Contact</h3>
+          <p class="con">420 DMDY Bldg. San Pedro Street, Cardona,
+              <br>Philippines, 1950 
+              <br>
+              <br>kape-juan_cafe@gmail.com
+              <br>
+              <br>+639277513776</p>
+      </div>
+      <div class="about">
+          <h3>About Us</h3>
+          <p class="us">Lorem ipsum dolor sit amet consectetur adipisicing 
+              <br>elit. Animi nemo fugit voluptatibus praesentium 
+              <br>aspernatur. Blanditiis ab labore sapiente consectetur 
+              <br>dignissimos aut sed assumenda dolor, ex, possimus 
+              <br>quasi, ducimus culpa laudantium.</p>
+      </div>
+      <div class="logo">
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-twitter"></a>
+      </div>
+      <div class="line">
+      </div>
+      <div class="copy">
+          <p>Kape-Juan Cafe © 2021 All Rights Reserved</p>
+      </div> -->
+  </div>
+  </body>
+</html>

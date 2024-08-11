@@ -1,0 +1,91 @@
+/**
+*   Modal window
+*   Css only clever modal window.
+*
+*   @class     .modal
+*   @children  .modal-trigger, .modal-overlay, .modal-container
+*   @states    :checked
+*/
+.modal {
+    display: inline-block;
+  }
+  .modal > .modal-trigger {
+    display: none;
+  }
+  .modal > .modal-trigger ~ .modal-overlay {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .modal > .modal-trigger ~ .modal-container {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    z-index: 110;
+    position: fixed;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    transform: translate(-50%, -50%);
+  }
+  .modal > .modal-trigger:checked ~ .modal-overlay,
+  .modal > .modal-trigger:checked ~ .modal-container {
+    opacity: 1;
+    visibility: visible;
+  }
+  /** END OF MODAL **/
+  /**
+  *    Stuff you don't need
+  *    This is not necessary. Just something to make the modal
+  *    content and button look less bad.
+  */
+  html,
+  body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .button {
+    color: #fff;
+    cursor: pointer;
+    line-height: 3rem;
+    border-radius: 4px;
+    padding: 1rem 3rem;
+    background-color: #311b92;
+  }
+  .button:hover {
+    background-color: #7c4dff;
+  }
+  .card {
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  .card .card-header,
+  .card .card-body {
+    padding: 1rem 2rem;
+  }
+  .card .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card .card-footer .item {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+  }
+  .card .card-footer .item.action {
+    cursor: pointer;
+  }
+  .card .card-footer .item.action:hover {
+    background-color: #ccc;
+  }
+  

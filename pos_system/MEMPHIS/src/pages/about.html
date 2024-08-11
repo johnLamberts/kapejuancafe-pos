@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Kape-Juan Cafe</title>
+
+    <link rel="stylesheet" href="../styles/styles.css" />
+
+    <link rel="stylesheet" href="src/styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+
+    <style>
+      html,
+      body {
+        overflow-x: hidden;
+      }
+      section {
+        overflow: hidden;
+        min-height: 20vh;
+      }
+      .loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* overflow-y: hidden; */
+        width: 100%;
+        z-index: 99;
+        background: #e0cfac;
+        display: grid;
+        place-items: center;
+        font-family: "Orbitron", sans-serif;
+        /* display: none; */
+      }
+      .loading__box {
+        position: relative;
+        width: 500px;
+        height: 200px;
+        border: 3px solid #66490e;
+        border-top: 3px solid #66490e;
+        border-bottom: 3px solid #66490e;
+      }
+      @media (max-width: 600px) {
+        .loading__box {
+          width: 90vw;
+        }
+      }
+      .loading__bar {
+        width: 90%;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ccc;
+        border-radius: 2px;
+      }
+      .loading__bar--inner {
+        height: 100%;
+        width: 0;
+        border-radius: 2px;
+        background-color: #8d5921;
+      }
+      .loading__text {
+        position: relative;
+        color: #8d5921;
+        padding: 1rem;
+        letter-spacing: 2px;
+        font-size: 2rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 351px) {
+        .loading__text {
+          font-size: 17px;
+        }
+      }
+      .loading__text--dot {
+        width: 15px;
+        height: 15px;
+        margin: 0 3px;
+        border-radius: 50%;
+        background-color: #66490e;
+        animation: pulse 1s infinite;
+      }
+      @keyframes pulse {
+        from {
+          opacity: 0;
+          background-color: #66490e;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .loading__text--lines {
+        width: 85%;
+        height: 1px;
+        background-color: #66490e;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .loading__counter {
+        position: absolute;
+        top: 70%;
+        left: 0;
+        color: #66490e;
+        font-size: 20px;
+        width: 100%;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+      }
+      .loading__counter--number {
+        color: #66490e;
+        padding-right: 2rem;
+      }
+      .loading__width--animation {
+        animation: width_animation 1s forwards;
+      }
+      @keyframes width_animation {
+        0% {
+          width: 85%;
+        }
+        100% {
+          width: 270px;
+        }
+      }
+      .loading__svg {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        opacity: 0.001;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading">
+      <div class="loading__box">
+        <img loading="lazy" src="../../assets/highlight_bg-1.png" class="loading__svg" />
+        <div class="loading__text">
+          <div class="loading__text--lines loading__width--animation"></div>
+          KAPE
+          <div class="loading__text--dot"></div>
+          JUAN CAFE
+        </div>
+        <div class="loading__bar">
+          <div class="loading__bar--inner"></div>
+        </div>
+        <div class="loading__counter">
+          <span>0%</span>
+          <div class="loading__counter--number">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <nav class="nav">
+        <ul class="navbar-nav">
+          <li class="menu-items">
+            <a href="../../index.html" class="active-links">Home</a>
+          </li>
+          <li class="menu-items">
+            <a href="./about.html" class="active-links">About</a>
+          </li>
+          <li class="menu-items">
+            <a href="./menu.html" class="active-links">Menu</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="logo">
+        <img
+          src="../../assets/images/KapeJuan-Logo.png"
+          alt="Kape-Juan Logo"
+          class="logo-img"
+        />
+      </div>
+
+      <nav class="nav">
+        <ul class="navbar-nav right">
+          <li class="menu-items">
+            <a href="#" class="active-links">Shop</a>
+          </li>
+          <li class="menu-items">
+            <a href="#" class="active-links">Contact</a>
+          </li>
+          <li class="menu-items">
+            <a href="../../pos_system/index.php" class="active-links"
+              >Account</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- about -->
+      <section class="section about-page-more" id="about">
+        <div class="about__page--more">
+          <div class="heading__secondary">
+            Our Kape-Juan <br />cafe
+            <br />
+            <span>
+              <img src="../../assets/images/down-menu.png" alt="" />
+            </span>
+          </div>
+          <!-- <h1 class="heading__primary about-heading">About</h1> -->
+        </div>
+      </section>
+
+      <section class="section about-page-more-description" id="about-page">
+        <!-- <div class="bg-cutter-about">
+              <img src="../../assets/images/bg-cutter.png" alt="" class="bg-cutter-img" />
+            </div> -->
+        <div class="about-more-description">
+          <div class="more-caption-wallpaper">
+            <div class="img">
+              <img
+                src="../../assets/images/about/about_2.jpg"
+                alt=""
+                class="about-desc-img"
+              />
+            </div>
+            <div class="description-more">
+              <p class="special__about">
+                Our menu changes on a monthly basis, to reflect the changing
+                seasons, and to ensure that there’s something new for you to
+                enjoy each time you visit. Be sure to speak to one of us about
+                the daily specials.
+              </p>
+              <div>
+                <img
+                  src="../../assets/images/about/about-cutter.png"
+                  alt=""
+                  class="about-cutter-imgs"
+                />
+              </div>
+              <div class="header">
+                <h1 class="heading__secondary">Environmental<br />Friendly</h1>
+                <span>
+                  <img
+                    src="../../assets/images/about/pHe.png"
+                    alt="#"
+                    class="lines"
+                  />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="more-caption-wallpaper">
+            <div class="img">
+              <img
+                src="../../assets/images/about/about_4.jpg"
+                alt=""
+                class="about-desc-img"
+              />
+            </div>
+            <div class="description-more">
+              <p>
+                Our menu changes on a monthly basis, to reflect the changing
+                seasons, and to ensure that there’s something new for you to
+                enjoy each time you visit. Be sure to speak to one of us about
+                the daily specials.
+              </p>
+              <div>
+                <img
+                  src="../../assets/images/about/about-cutter.png"
+                  alt=""
+                  class="about-cutter-imgs"
+                />
+              </div>
+              <div class="header">
+                <h1 class="heading__secondary">Kape - Juan <br />Cafe</h1>
+                <span>
+                  <img src="../../assets/images/about/pHe.png" alt="#" />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="more-caption-wallpaper">
+            <div class="img">
+              <img
+                src="../../assets/images/about/about_3.jpg"
+                alt=""
+                class="about-desc-img"
+              />
+            </div>
+            <div class="description-more">
+              <p class="special__about">
+                Our menu changes on a monthly basis, to reflect the changing
+                seasons, and to ensure that there’s something new for you to
+                enjoy each time you visit. Be sure to speak to one of us about
+                the daily specials.
+              </p>
+              <div>
+                <img
+                  src="../../assets/images/about/about-cutter.png"
+                  alt=""
+                  class="about-cutter-imgs"
+                />
+              </div>
+              <div class="header">
+                <h1 class="heading__secondary">Affordable <br />Price</h1>
+                <span>
+                  <img src="../../assets/images/about/pHe.png" alt="#" />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script defer type="module" src="../../assets/js/loader.js"></script>
+  </body>
+</html>

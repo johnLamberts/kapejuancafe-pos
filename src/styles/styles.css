@@ -1,0 +1,20 @@
+
+
+/* base css */
+@import './base/_base.css';
+
+/* pages */
+@import './pages/_home.css';
+@import './pages/shop.css';
+
+/* components */
+@import './components/_about.css';
+@import './components/_menu.css';
+@import './components/_wallpaper.css';
+@import './components/auth/_menu-page.css';
+@import './components/auth/login.css';
+@import './components/_loader.css';
+
+/* layouts */
+@import './layouts/_header.css';
+@import './layouts/_modal.css';

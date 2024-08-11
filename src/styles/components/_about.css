@@ -1,0 +1,194 @@
+.about-page {
+    position: relative;
+}
+
+.heading__secondary {
+    padding-top: 2.4rem;
+}
+
+.about__description {
+    text-align: center;
+    padding-top: 6rem;
+    padding-bottom: 1rem;
+    width: 55%;
+    margin: auto;
+    color: var(--color-primary);
+}
+
+.about__description .about {
+    font-weight: 400;
+}
+
+.about__description .about img {
+    margin-bottom: 5%;
+}
+
+.about__description p {
+    font-weight: 800;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.about-box-content {
+    background-color: var(--bg-primary-color);
+    background-image: url(/assets/images/bg_secondary.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-blend-mode: multiply;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.about-box-content .primary-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.about-box-content .primary-btn .primary-btn-links {
+    background-color: var(--bg-secondary-color);
+    padding: 0.5rem 1.2rem;
+    color: var(--color-secondary);
+    box-shadow: -0.3rem 0.3rem 1px rgba(141,89,33, 0.7);
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    align-items: center;
+    color: var(--color-primary);
+    flex-wrap: nowrap;
+}
+
+.about-content .about__caption{
+    margin-top: 7%;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    height:100%;
+    flex-direction: column;
+}
+
+.about-content .about__caption .about__caption--desc {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.about-content .about__caption .about__caption--desc h2 {
+    font-size: 3rem;
+}
+
+.about__page--more {
+    min-height: 90vh;
+    text-align: center;
+}
+
+.about__page--more {
+    background-color: var(--bg-primary-color);
+    background-image: url(../../../assets/images/bg_secondary.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-blend-mode: multiply;
+    color: var(--color-primary);
+}
+
+.heading__secondary {
+    font-size: 3.3rem;
+    padding-top: 10%;
+}
+
+.about-heading {
+    /* margin-top: 15%; */
+    padding-bottom: 15%;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-page-more-description {
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+
+.about-more-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.more-caption-wallpaper:nth-last-child(2) {
+    display: flex;
+    flex-direction: column-reverse;
+    color: var(--color-primary);
+    height: 40%;
+    padding-top: 3rem;
+}
+.more-caption-wallpaper {
+    color: var(--color-primary);
+    position: relative;
+}
+.special__about {
+    margin-top: 40%;
+}
+.more-caption-wallpaper:nth-last-child(2) .description-more,
+.more-caption-wallpaper .description-more {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-weight: 600;
+}
+
+.more-caption-wallpaper:nth-last-child(2) .description-more .heading__secondary,
+.more-caption-wallpaper .description-more .heading__secondary {
+    font-size: 2.6rem;
+    font-weight: 400;
+}
+
+.more-caption-wallpaper:nth-last-child(2) .description-more .header,
+.more-caption-wallpaper .description-more .header  {
+    display: inline-block;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+.bg-cutter-about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-cutter-about {
+    position: absolute;
+    top: 2rem;
+}
+
+.more-caption-wallpaper:nth-last-child(2) .description-more .header span img,
+.more-caption-wallpaper .description-more .header span img {
+    width: 1%;
+    position: absolute;
+}
+.more-caption-wallpaper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-caption-wallpaper .description-more .header {
+    display: inline-block;
+}
+
+.about-desc-img {
+    height: 28rem !important;
+    width: 23rem !important;
+}
+
